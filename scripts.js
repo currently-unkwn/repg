@@ -41,42 +41,47 @@
 
 // * or more for bench press
 
-const BENCH_PRESS_MAX = 75;
-const DEADLIFT_MAX = 85;
-const SQUAT_MAX = 65;
+// BENCH_PRESS_MAX = 75
+// DEADLIFT_MAX = 85
+// CHIN_UPS_MAX = 12
+const BENCH_PRESS_MAX = prompt("Barbell Bench Press Max:  ");
+const DEADLIFT_MAX = prompt("Deadlift Max:  ");
+// const BENCH_PRESS_MAX = 75;
+// const DEADLIFT_MAX = 85;
+const SQUAT_MAX = 0;
 
 const Week1 = {
-  weekNumber: "Week 1",
+  weekNumber: "WEEK 1",
   percentages: [72.5, 77.5, 82.5],
   reps: [8, 6, 4],
 };
 
 const Week2 = {
-  weekNumber: "Week 2",
+  weekNumber: "WEEK 2",
   percentages: [75, 80, 85],
   reps: [7, 5, 3],
 };
 
 const Week3 = {
-  weekNumber: "Week 3",
+  weekNumber: "WEEK 3",
   percentages: [77.5, 82.5, 90],
   reps: [6, 4, 2],
 };
 
 const Week4 = {
-  weekNumber: "Week 4",
-  percentages: [80, 85, 90],
+  weekNumber: "WEEK 4",
+  percentages: [80, 85, 95],
   reps: [5, 3, 1],
 };
 
 const Week5 = {
-  weekNumber: "Week 5",
+  weekNumber: "WEEK 5",
   percentages: [50, 60],
   reps: [5, 5],
 };
 
 const Week11 = {
-  weekNumber: "Week 11",
+  weekNumber: "WEEK 11",
   percentages: [80, 87.5, 92.5, 102, 104, 106],
   reps: [4, 2, 1, 1, 1, 1],
 };
@@ -125,8 +130,6 @@ const setWeights = function (weeksArr) {
 
 setWeights(Weeks);
 
-const printOutput = function () {};
-
 const exerciseWeightsAndRepsInAWeekOutput = function (
   week,
   exercise,
@@ -135,7 +138,9 @@ const exerciseWeightsAndRepsInAWeekOutput = function (
   let output = "";
 
   week.percentages.map((percentage, index) => {
-    output += `${index + 1} set — (${percentage}%) ${exercise[index]}kg - ${
+    const exerciseWeight = exercise[index].toFixed(1);
+
+    output += `${index + 1} set — (${percentage}%) ${exerciseWeight}kg - ${
       week.reps[index]
     } reps \n`;
   });
@@ -162,15 +167,19 @@ const printAllExercisesWeightsAndRepsInAWeek = function (week) {
     SQUAT_MAX
   );
 
-  const output = `${week.weekNumber} \nBarbell Bench Press: \n${benchPressOutput} \nDeadlifts: \n${deadliftOutput} \nBarbell Squats: \n${barbellSquatOutput}`;
+  const output = `${week.weekNumber} \nBarbell Bench Press: \n${benchPressOutput} \nDeadlifts: \n${deadliftOutput} \nBarbell Squats: \n${barbellSquatOutput} \n`;
 
   return output;
 };
 
 const printTotalWeightsAndReps = function (weeksArr) {
-  return weeksArr.forEach((week) =>
-    console.log(printAllExercisesWeightsAndRepsInAWeek(week))
+  let total = "";
+
+  weeksArr.forEach(
+    (week) => (total += printAllExercisesWeightsAndRepsInAWeek(week))
   );
+
+  return total;
 };
 
-printTotalWeightsAndReps(Weeks);
+alert(printTotalWeightsAndReps(Weeks));
