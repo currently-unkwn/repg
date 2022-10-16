@@ -149,11 +149,12 @@ const exerciseWeightsAndRepsInAWeekOutput = function (
 };
 
 const printAllExercisesWeightsAndRepsInAWeek = function (week) {
-  const benchPressOutput = exerciseWeightsAndRepsInAWeekOutput(
-    week,
-    week.weightsBenchPress,
-    BENCH_PRESS_MAX
-  );
+  const benchPressOutput =
+    exerciseWeightsAndRepsInAWeekOutput(
+      week,
+      week.weightsBenchPress,
+      BENCH_PRESS_MAX
+    ) + "or more \n";
 
   const deadliftOutput = exerciseWeightsAndRepsInAWeekOutput(
     week,
