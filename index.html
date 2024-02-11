@@ -5,9 +5,211 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="scripts.js"></script>
+    <link rel="stylesheet" href="styles.css" />
     <title>
-      RepG | Rep generator for barbell bench press, deadlifts and squats
+      RepG | Rep generator for barbell bench press, deadlifts and squats. Based
+      on Built Like a Badass by Joe DeFranco program.
     </title>
   </head>
-  <body></body>
+  <body>
+    <div class="max-width-wrapper">
+      <section id="hero">
+        <div class="hero-content">
+          <h1 class="h2 hero-title">Rep<br />Generator</h1>
+          <p class="sub">
+            Built Like a Badass by Joe DeFranco program main lifts rep
+            generator.
+          </p>
+
+          <div class="metadata">
+            <p class="version">Version 1.1</p>
+            <p class="inspiration">
+              Theme inspired by
+              <a href="https://yeun.github.io/open-color/">Open Color</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <section id="max-numbers">
+          <form action="#" data-max-numbers>
+            <fieldset>
+              <div class="input-group">
+                <label for="benchPressMax">Barbell Bench Press Max:</label>
+                <input
+                  type="number"
+                  name="benchPressMax"
+                  id="benchPressMax"
+                  min="0"
+                  max="300"
+                  placeholder="0"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="squatMax">Barbell Squat Max:</label>
+                <input
+                  type="number"
+                  name="squatMax"
+                  id="squatMax"
+                  min="0"
+                  max="300"
+                  value="0"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="deadliftMax">Deadlifts Max:</label>
+                <input
+                  type="number"
+                  name="deadliftMax"
+                  id="deadliftMax"
+                  min="0"
+                  max="300"
+                  value="0"
+                  required
+                />
+              </div>
+            </fieldset>
+
+            <button class="btn btn-default btn-primary" type="submit">
+              Generate
+            </button>
+
+            <!-- <button class="btn btn-default btn-danger" data-clear>Clear</button> -->
+          </form>
+        </section>
+
+        <section id="lifts">
+          <!-- <div class="lift-content">
+            <div class="lift-week">Week 1</div>
+
+            <article class="lift">
+              <h3 class="exercise" data-exercise>Barbell Bench Press</h3>
+              <div class="max">Your max: <span data-max-lift>85kg</span></div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sets</th>
+                    <th>Weights</th>
+                    <th>Reps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="set">1</td>
+                    <td class="weight">
+                      <div class="weight-number">
+                        <span class="weight-percentage">72.5%</span>
+                        54.4kg
+                      </div>
+                    </td>
+                    <td class="rep">8</td>
+                  </tr>
+                  <tr>
+                    <td class="set">2</td>
+                    <td class="weight">
+                      <div class="weight-number">
+                        <span class="weight-percentage">77.5%</span>
+                        58.1kg
+                      </div>
+                    </td>
+                    <td class="rep">6</td>
+                  </tr>
+                  <tr>
+                    <td class="set">3</td>
+                    <td class="weight">
+                      <div class="weight-number">
+                        <span class="weight-percentage">82.5%</span>
+                        61.9kg
+                      </div>
+                    </td>
+                    <td class="rep">4 or more</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="lift">
+              <h3 class="exercise" data-exercise>Barbell Squat</h3>
+              <div class="max">Your max: <span data-max-lift>85kg</span></div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sets</th>
+                    <th>Weights</th>
+                    <th>Reps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="set">1</td>
+                    <td class="weight">
+                      <span class="weight-percentage">72.5%</span>54.4kg
+                    </td>
+                    <td class="rep">8</td>
+                  </tr>
+                  <tr>
+                    <td class="set">2</td>
+                    <td class="weight">
+                      <span class="weight-percentage">77.5%</span>58.1kg
+                    </td>
+                    <td class="rep">6</td>
+                  </tr>
+                  <tr>
+                    <td class="set">3</td>
+                    <td class="weight">
+                      <span class="weight-percentage">82.5%</span>61.9kg
+                    </td>
+                    <td class="rep">4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="lift">
+              <h3 class="exercise" data-exercise>Deadlifts</h3>
+              <div class="max">Your max: <span data-max-lift>85kg</span></div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sets</th>
+                    <th>Weights</th>
+                    <th>Reps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="set">1</td>
+                    <td class="weight">
+                      <span class="weight-percentage">72.5%</span>54.4kg
+                    </td>
+                    <td class="rep">8</td>
+                  </tr>
+                  <tr>
+                    <td class="set">2</td>
+                    <td class="weight">
+                      <span class="weight-percentage">77.5%</span>58.1kg
+                    </td>
+                    <td class="rep">6</td>
+                  </tr>
+                  <tr>
+                    <td class="set">3</td>
+                    <td class="weight">
+                      <span class="weight-percentage">82.5%</span>61.9kg
+                    </td>
+                    <td class="rep">4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+          </div> -->
+        </section>
+      </main>
+    </div>
+    <script type="module" src="scripts.js"></script>
+  </body>
 </html>

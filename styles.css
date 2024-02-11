@@ -1,0 +1,399 @@
+/* DESIGN TOKENS */
+
+html {
+  --color-white: hsl(0deg 0% 100%);
+  --color-black: hsl(0deg 0% 4%);
+
+  --color-gray-3: hsl(210, 14%, 89%);
+  --color-gray-4: hsl(210, 14%, 83%);
+  --color-gray-5: hsl(210, 11%, 71%);
+  --color-gray-6: hsl(210, 7%, 56%);
+  --color-gray-7: hsl(210, 9%, 31%);
+
+  --color-blue-5: #339af0;
+
+  --color-lime-6: #82c91e;
+  --color-lime-7: #74b816;
+  --color-lime-8: #66a80f;
+
+  --color-red-7: #f03e3e;
+  --color-red-8: #e03131;
+  --color-red-9: #c92a2a;
+
+  --color-primary: var(--color-lime-6);
+  --color-primary-hover: var(--color-lime-7);
+  --color-primary-active: var(--color-lime-8);
+
+  --color-success: var(--color-teal-1);
+  --color-success-text: var(--color-teal-5);
+
+  --color-danger: var(--color-red-7);
+  --color-danger-hover: var(--color-red-8);
+  --color-danger-active: var(--color-red-9);
+
+  --color-error: var(--color-red-1);
+  --color-error-text: var(--color-red-5);
+
+  --shadow-color: 0deg 0% 0%;
+  --shadow-elevation-high: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.05),
+    0px 1.4px 1.6px -0.4px hsl(var(--shadow-color) / 0.05),
+    0px 2.6px 2.9px -0.8px hsl(var(--shadow-color) / 0.05),
+    0px 4.5px 5.1px -1.2px hsl(var(--shadow-color) / 0.05),
+    0px 7.5px 8.5px -1.6px hsl(var(--shadow-color) / 0.05),
+    -0.1px 12.1px 13.7px -2px hsl(var(--shadow-color) / 0.05),
+    -0.1px 19px 21.5px -2.4px hsl(var(--shadow-color) / 0.05);
+
+  --default-start-animation: 200ms cubic-bezier(0.44, 0.21, 0, 1);
+  --default-exit-animation: 400ms cubic-bezier(0.44, 0.21, 0, 1);
+
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, avenir next,
+    avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial,
+    sans-serif;
+}
+
+/** RESET AND GLOBAL STYLES */
+
+/*
+      1. Use a more-intuitive box-sizing model.
+    */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+      2. Remove default margin
+    */
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+      3. Allow percentage-based heights in the application
+    */
+html,
+body,
+#root,
+#__next {
+  height: 100%;
+}
+/*
+      Typographic tweaks!
+      4. Add accessible line-height
+      5. Improve text rendering
+    */
+body {
+  color: var(--color-gray-7);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-family-sans-serif);
+}
+/*
+      6. Improve media defaults
+    */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+      7. Remove built-in form typography styles
+    */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+      8. Avoid text overflows
+    */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+fieldset {
+  border: none;
+}
+/*
+      9. Create a root stacking context
+    */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.h2 {
+  font-size: calc(40 / 16 * 1rem);
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.h3 {
+  font-size: calc(24 / 16 * 1rem);
+  line-height: 1.5;
+}
+
+/* MAIN STYLES */
+
+/* UTILITIES */
+
+.max-width-wrapper {
+  max-width: calc(480 / 16 * 1rem);
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.btn:focus {
+  outline-offset: 2px;
+}
+
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Hero Section */
+
+#hero {
+  padding-block: 64px;
+
+  border-bottom: 1px solid var(--color-gray-3);
+}
+
+.hero-title {
+  margin-bottom: calc(40px - 16px);
+}
+
+.sub,
+.metadata,
+.metadata a {
+  color: var(--color-gray-6);
+}
+
+.sub {
+  font-size: calc(18 / 16 * 1rem);
+  margin-bottom: calc(48px - 11px);
+}
+
+.metadata {
+  font-size: calc(12 / 16 * 1rem);
+}
+
+.metadata a {
+  text-decoration: none;
+
+  transition: color var(--default-exit-animation);
+}
+
+.metadata a:hover {
+  color: var(--color-gray-7);
+  transition: color var(--default-start-animation);
+}
+
+/* MAX NUMBERS SECTION */
+
+#max-numbers {
+  padding-top: calc(48px - 1px);
+  padding-bottom: calc(64px - 1px);
+  border-bottom: 1px solid var(--color-gray-3);
+}
+
+form[data-max-numbers] .input-group + .input-group,
+form[data-max-numbers] .btn + .btn {
+  margin-top: 24px;
+}
+
+form[data-max-numbers] fieldset {
+  margin-bottom: 40px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group input {
+  padding-block: 4px;
+  padding-left: 8px;
+  border: 1px solid var(--color-gray-3);
+  border-radius: 4px;
+
+  transition: border-color var(--default-exit-animation);
+}
+
+.input-group input:hover {
+  border-color: var(--color-gray-7);
+
+  transition: border-color var(--default-start-animation);
+}
+
+/* LIFTS SECTION */
+
+#lifts {
+  padding-block: 64px;
+}
+
+#lifts .lift-content + .lift-content {
+  margin-top: 80px;
+}
+
+#lifts article + article {
+  margin-top: 64px;
+}
+
+.lift-week {
+  padding: 2px 8px;
+  width: fit-content;
+  margin-bottom: 24px;
+  font-size: calc(13 / 16 * 1rem);
+  font-weight: 600;
+  background-color: var(--color-blue-5);
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lift .exercise {
+  font-size: calc(19 / 16 * 1rem);
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
+.lift .max {
+  font-size: calc(13 / 16 * 1rem);
+  font-weight: 500;
+  color: var(--color-gray-6);
+}
+
+.lift table {
+  margin-top: 16px;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.lift table thead th {
+  font-size: calc(13 / 16 * 1rem);
+  color: var(--color-gray-5);
+  font-weight: 400;
+  padding-bottom: 4px;
+}
+
+.lift table tbody {
+  font-weight: 500;
+}
+
+.lift table tbody td {
+  padding-block: 4px;
+  border-top: 1px solid var(--color-gray-3);
+}
+
+.lift table thead th:nth-child(2) {
+  text-align: center;
+}
+
+.lift table thead th:nth-child(3),
+.lift table tbody td.rep {
+  text-align: right;
+}
+
+.lift table tbody td.weight {
+  display: flex;
+  justify-content: center;
+}
+
+.lift table tbody td.weight .weight-number {
+  position: relative;
+  width: fit-content;
+}
+
+.lift table tbody td.weight .weight-percentage {
+  position: absolute;
+
+  top: 4px;
+  left: 0px;
+  transform: translateX(calc(-100% - 4px));
+  /* margin-right: 4px; */
+
+  padding: 0px 4px;
+  font-size: calc(11 / 16 * 1rem);
+  font-weight: 500;
+  /* background-color: var(--color-gray-4); */
+
+  /* border-radius: 4px; */
+  color: var(--color-gray-6);
+}
+
+/* BUTTONS */
+
+.btn-default,
+.btn-default:link,
+.btn-default:visited {
+  width: 100%;
+  padding: calc(20px - 6px);
+  font-size: calc(14 / 16 * 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+
+  border-radius: 4px;
+  will-change: transform;
+  transition: background var(--default-exit-animation);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+
+  transition: background var(--default-start-animation);
+}
+
+.btn-primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn-danger {
+  background: var(--color-danger);
+  color: var(--color-white);
+}
+
+.btn-danger:hover {
+  background: var(--color-danger-hover);
+
+  transition: background var(--default-start-animation);
+}
+
+.btn-danger:active {
+  background: var(--color-danger-active);
+}
+/* MEDIA STYLES */
+
+/* KEYFRAMES */
