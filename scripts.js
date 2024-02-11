@@ -138,7 +138,7 @@ function init() {
 
   if (!saved) return;
 
-  clearBtn.style.display = "none";
+  clearBtn.style.display = "block";
   lifts.innerHTML = saved;
 }
 
