@@ -385,6 +385,10 @@ form[data-max-numbers] fieldset {
   color: var(--color-white);
 }
 
+.btn[data-clear] {
+  display: none;
+}
+
 .btn-danger:hover {
   background: var(--color-danger-hover);
 

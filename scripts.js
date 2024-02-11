@@ -123,6 +123,7 @@ const weeks = [week1, week2, week3, week4, week5, week11];
 const lifts = document.querySelector("#lifts");
 const form = document.querySelector("form[data-max-numbers]");
 const firstInput = form.querySelector("input");
+const clearBtn = form.querySelector("[data-clear]");
 
 const KEY = "LIFTS";
 
@@ -137,6 +138,7 @@ function init() {
 
   if (!saved) return;
 
+  clearBtn.style.display = "none";
   lifts.innerHTML = saved;
 }
 
@@ -307,7 +309,21 @@ function handleSubmit(event) {
 
   // Scroll to lifts section
   lifts.scrollIntoView({ behavior: "smooth" });
+
+  clearBtn.style.display = "block";
+}
+
+function handleClick(event) {
+  event.preventDefault();
+
+  lifts.innerHTML = "Type your max numbers and press 'Generate'.";
+  localStorage.removeItem(KEY);
+
+  firstInput.focus();
+
+  clearBtn.style.display = "none";
 }
 
 init();
 form.addEventListener("submit", handleSubmit);
+clearBtn.addEventListener("click", handleClick);
